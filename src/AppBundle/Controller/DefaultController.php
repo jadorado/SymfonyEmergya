@@ -24,6 +24,13 @@ class DefaultController extends Controller
     public function paginatorAction(Request $request)
     {
         
+        
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        // Simple example
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
+        // Example without URL
+        $breadcrumbs->addItem("Sample section");        
+
         $sampleData=[];
         for($i=0;$i<300;$i++)
             $sampleData[]="Lorem ipsum ".$i;

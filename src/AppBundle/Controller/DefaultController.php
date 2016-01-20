@@ -22,13 +22,9 @@ class DefaultController extends Controller
      * @Route("/paginator", name="paginator_sample")
      */
     public function paginatorAction(Request $request)
-    {
-        
-        
-        $breadcrumbs = $this->get("white_october_breadcrumbs");
-        // Simple example
-        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));
-        // Example without URL
+    {   
+        $breadcrumbs = $this->get("white_october_breadcrumbs");        
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));        
         $breadcrumbs->addItem("Sample section");        
 
         $sampleData=[];
@@ -49,6 +45,18 @@ class DefaultController extends Controller
         );
         
         return $this->render('AppBundle:Default:paginator.html.twig', array('pagination' => $pagination));
+
+    }
+    /**
+     * @Route("/tinyMCE-example", name="tmce_sample")
+     */
+    public function tinyMCEAction(Request $request)
+    {   
+        $breadcrumbs = $this->get("white_october_breadcrumbs");        
+        $breadcrumbs->addItem("Home", $this->get("router")->generate("homepage"));        
+        $breadcrumbs->addItem("TinyMCE Example");        
+        
+        return $this->render('AppBundle:Default:tinymce.html.twig');
 
     }
 }

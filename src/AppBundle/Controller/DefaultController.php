@@ -18,4 +18,30 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ]);
     }
+    /**
+     * @Route("/paginator", name="paginator_sample")
+     */
+    public function paginatorAction(Request $request)
+    {
+        
+        $sampleData=[];
+        for($i=0;$i<300;$i++)
+            $sampleData[]="Lorem ipsum ".$i;
+        
+        
+        $em    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT a FROM AppBundle:User a";
+        $query = $em->createQuery($dql);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            //$sampleData, /* query NOT result */
+            $query,
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+        
+        return $this->render('AppBundle:Default:paginator.html.twig', array('pagination' => $pagination));
+
+    }
 }

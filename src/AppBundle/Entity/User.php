@@ -19,9 +19,24 @@ class User extends BaseUser
      */
     protected $id;
 
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
+    }
+    
+    
+    public function setExpiresAt(\DateTime $date = null) {
+        parent::setExpiresAt($date);
+    }
+    public function getExpiresAt(){
+        return $this->expiresAt;
+    }
+    public function setCredentialsExpireAt(\DateTime $date = null) {
+        parent::setCredentialsExpireAt($date);
+    }
+    public function getCredentialsExpireAt(){
+        return $this->credentialsExpireAt;
     }
 }

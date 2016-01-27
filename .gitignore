@@ -35,4 +35,8 @@
 
 # Composer PHAR
 /composer.phar
+
 /nbproject/private/
+/nbproject/project.xml
+/nbproject/project.properties
+

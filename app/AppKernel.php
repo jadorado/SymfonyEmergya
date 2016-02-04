@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+            new Xsolve\CookieAcknowledgementBundle\XsolveCookieAcknowledgementBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
